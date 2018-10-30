@@ -1,0 +1,38 @@
+[module/vio-play]
+type = custom/text
+content = 
+;click-left = $HOME/.config/polybar/scripts/volumio-play.sh
+click-left = curl "volumio.local/api/v1/commands/?cmd=toggle"
+
+
+[module/vio-nextsong]
+type = custom/text
+content = 
+click-left = curl -s "volumio.local/api/v1/commands/?cmd=next"
+
+[module/vio-prevsong]
+type = custom/text
+content = 
+click-left = curl -s "volumio.local/api/v1/commands/?cmd=prev"
+
+[module/vio-volumeup]
+type = custom/text
+content =Volumio:  
+click-left = curl -s "volumio.local/api/v1/commands/?cmd=volume&volume=plus"
+scroll-up = curl -s "volumio.local/api/v1/commands/?cmd=volume&volume=plus"
+
+
+[module/vio-volumedown]
+type = custom/text
+content = 
+click-left = curl -s "volumio.local/api/v1/commands/?cmd=volume&volume=minus"
+scroll-down = curl -s "volumio.local/api/v1/commands/?cmd=volume&volume=minus"
+
+
+[module/vio-stat]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/songstat.php
+tail = true
+interval = 1.0
+label = %output%
+
